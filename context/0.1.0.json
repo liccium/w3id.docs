@@ -1,0 +1,57 @@
+{
+    "@context": {
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "dct": "http://purl.org/dc/terms/",
+      "@schema": "https://schema.org/",
+      "prov": "http://www.w3.org/ns/prov#",
+      "security": "https://w3id.org/security#",
+      "cred": "https://www.w3.org/2018/credentials/#",
+      "lic": "https://w3id.org/liccium/ont/",
+      "@iscc": "https://schema.iscc.codes/terms/",
+      "iscc_schema": "https://schema.iscc.codes/schema/",
+  
+      "signature":       { "@id": "lic:signature", "@type": "xsd:string" },
+      "tsaSignature":    { "@id": "lic:tsaSignature", "@type": "xsd:string" },
+      "storageID":       { "@id": "lic:storageID", "@type": "xsd:string" },
+      "declarationID":   { "@id": "lic:declarationID", "@type": "xsd:string" },
+      "entryID":         { "@id": "lic:entryId", "@type": "xsd:string" },
+      "redirect":        { "@id": "lic:redirect", "@type": "@id" },
+      "regId":           { "@id": "lic:regID", "@type": "xsd:string" },
+      "declarerDid":     { "@id": "lic:declarerDid", "@type": "@id" },
+      "pdRationale":     { "@id": "lic:pdRationale", "@type": "xsd:string" },
+      "certificates":    { "@id": "lic:certificates", "@type": "xsd:string" },
+      "x5cHeader":       { "@id": "lic:x5cHeader", "@type": "xsd:string" },
+      "jwt":             { "@id": "lic:jwt", "@type": "xsd:string" },
+      "original":        { "@id": "http://purl.org/iscc/terms/original", "@type": "@id" },
+  
+      "iscc":            { "@id": "iscc:#iscc", "@type": "xsd:string" },
+      "mode":            { "@id": "iscc_schema:#mode", "@type": "xsd:string" },
+  
+      "name":            { "@id": "dct:title", "@type": "xsd:string" },
+      "description":     { "@id": "dct:description", "@type": "xsd:string" },
+      "creator":         { "@id": "dct:creator", "@type": "@id" },
+      "attributionString": { "@id": "dct:rights", "@type": "xsd:string" },
+      "rightsStatement": { "@id": "dct:license", "@type": "@id" },
+      "creationDate":    { "@id": "dct:created", "@type": "xsd:dateTime" },
+      "supersedes":      { "@id": "dct:replaces", "@type": "@id" },
+  
+      "timestamp":       { "@id": "prov:generatedAtTime", "@type": "xsd:dateTime" },
+  
+      "mediatype":       { "@id": "schema:encodingFormat", "@type": "xsd:string" },
+      "thumbnail":       { "@id": "schema:thumbnailUrl", "@type": "@id" },
+      "location":        { "@id": "schema:url", "@type": "@id" },
+      "schema":          { "@id": "schema:schema", "@type": "@id" },
+      "schemaVersion":   { "@id": "schema:schemaVersion", "@type": "xsd:string" },
+      "version":         { "@id": "schema:version", "@type": "xsd:string" },
+      "steward":         { "@id": "schema:provider", "@type": "@id" },
+  
+      "issuer":          { "@id": "cred:issuer", "@type": "@id" },
+      "validFrom":       { "@id": "cred:validFrom", "@type": "xsd:dateTime" },
+      "validUntil":      { "@id": "cred:validUntil", "@type": "xsd:dateTime" },
+      "credentialSchema":  { "@id": "cred:CredentialSchema", "@type": "@id" },
+      "credentialSubject": { "@id": "cred:credentialSubject", "@type": "@id" },
+  
+      "proof":           { "@id": "security:proof", "@type": "@id" }
+    }
+  }
+  
