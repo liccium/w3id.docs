@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://w3id.org/commonsdb/schema/0.1.0.json",
+    "$id": "https://w3id.org/liccium/schema/0.1.0.json",
     "title": "Liccium Metadata Schema 0.1.0",
     "description": "JSON Schema for Liccium metadata declarations.",
     "type": "object",
