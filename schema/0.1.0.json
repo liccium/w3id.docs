@@ -1,8 +1,8 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://w3id.org/commonsdb/schema/0.1.0.json",
-    "title": "CommonsDB Metadata Schema 0.1.0",
-    "description": "JSON Schema for CommonsDB metadata declarations.",
+    "$id": "https://w3id.org/liccium/schema/0.1.0.json",
+    "title": "Liccium Metadata Schema 0.1.0",
+    "description": "JSON Schema for Liccium metadata declarations.",
     "type": "object",
   
     "required": [
@@ -103,12 +103,6 @@
         "x-explanation": "Indicates whether the declaring party claims to be the original creator or rightsholder of the content."
       },
   
-      "schemaVersion": {
-        "type": "string",
-        "description": "Indicates (by URL or string) a particular version of a schema used in some CreativeWork.",
-        "x-explanation": "Version of the declaration or metadata schema."
-      },
-  
       "entryID": {
         "type": "string",
         "description": "Unique identifier for the entry from the declaring party, could be a UUID."
@@ -136,12 +130,6 @@
       "regId": {
         "type": "string",
         "description": "Identifier of the registry instance in which the declaration is stored."
-      },
-  
-      "declarationIdVersion": {
-        "type": "string",
-        "description": "The version of the CreativeWork embodied by a specified resource.",
-        "x-explanation": "Version of the declarationID."
       },
   
       "certificates": {
