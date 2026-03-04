@@ -1,0 +1,144 @@
+{
+  "@context": {
+    "@version": "0.2.0",
+
+    "xsd":      "http://www.w3.org/2001/XMLSchema#",
+    "dct":      "http://purl.org/dc/terms/",
+    "schema":   "https://schema.org/",
+    "iscc_ont": "https://schema.iscc.codes/terms/",
+    "liccium":  "https://w3id.org/liccium/ont/",
+    "tdm":      "https://w3id.org/tdm-reservation-protocol/",
+    "cc":       "https://creativecommons.org/ns#",
+    "iptc":     "https://iptc.org/std/photometadata/specification/",
+    "faia":     "https://w3id.org/faia/ont/",
+
+    "iscc": {
+      "@id":   "iscc_ont:iscc",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id":   "dct:title",
+      "@type": "xsd:string"
+    },
+    "description": {
+      "@id":   "dct:description",
+      "@type": "xsd:string"
+    },
+    "timestamp": {
+      "@id":   "http://www.w3.org/ns/prov#generatedAtTime",
+      "@type": "xsd:integer"
+    },
+    "declarerId": {
+      "@id":   "liccium:declarerId",
+      "@type": "xsd:string"
+    },
+    "regId": {
+      "@id":   "liccium:regId",
+      "@type": "xsd:string"
+    },
+    "declarationIdVersion": {
+      "@id":   "liccium:declarationIdVersion",
+      "@type": "xsd:string"
+    },
+
+    "mode":        { "@id": "iscc_ont:mode",     "@type": "xsd:string" },
+    "filename":    { "@id": "iscc_ont:filename",  "@type": "xsd:string" },
+    "filesize":    { "@id": "iscc_ont:filesize",  "@type": "xsd:integer" },
+    "mediatype":   { "@id": "iscc_ont:mediatype", "@type": "xsd:string" },
+    "width":       { "@id": "schema:width",       "@type": "xsd:integer" },
+    "height":      { "@id": "schema:height",      "@type": "xsd:integer" },
+    "thumbnail":   { "@id": "schema:thumbnail",   "@type": "xsd:string" },
+    "metahash":    { "@id": "iscc_ont:metahash",  "@type": "xsd:string" },
+    "datahash":    { "@id": "iscc_ont:datahash",  "@type": "xsd:string" },
+    "sourceUrl":   { "@id": "schema:contentUrl",  "@type": "@id" },
+    "redirect":    { "@id": "schema:url",         "@type": "@id" },
+    "license":     { "@id": "cc:license",         "@type": "@id" },
+    "acquire":     { "@id": "cc:morePermissions", "@type": "@id" },
+    "original":    { "@id": "liccium:original",   "@type": "xsd:boolean" },
+    "redacted":    { "@id": "liccium:redacted",   "@type": "xsd:boolean" },
+    "version":     { "@id": "dct:hasVersion",     "@type": "xsd:integer" },
+    "entryUUID":   { "@id": "liccium:entryUUID",  "@type": "xsd:string" },
+    "supersedes":  { "@id": "dct:replaces",       "@type": "xsd:string" },
+
+    "credentials": {
+      "@id":   "https://www.w3.org/2018/credentials/#verifiableCredential",
+      "@type": "@id"
+    },
+
+    "liccium_plugins": {
+      "@id": "liccium:plugins",
+      "@context": {
+        "tdmai": {
+          "@id": "tdm:TDMPolicy",
+          "@context": {
+            "TDMAI":            { "@id": "tdm:permission",  "@type": "xsd:boolean" },
+            "TDMAI_policy_URL": { "@id": "tdm:policyURL",   "@type": "@id" }
+          }
+        },
+        "iptc": {
+          "@id": "iptc:PhotoMetadata",
+          "@context": {
+            "digitalsourcetype":  { "@id": "iptc:digitalSourceType",   "@type": "@id" },
+            "keywords":           { "@id": "iptc:keywords",            "@type": "xsd:string" },
+            "creator":            { "@id": "dct:creator",              "@type": "xsd:string" },
+            "credit":             { "@id": "iptc:creditLine",          "@type": "xsd:string" },
+            "creditText":         { "@id": "iptc:creditLine",          "@type": "xsd:string" },
+            "copyrightNotice":    { "@id": "dct:rights",               "@type": "xsd:string" },
+            "acquireLicensePage": { "@id": "cc:morePermissions",       "@type": "@id" },
+            "webstatementRights": { "@id": "cc:license",               "@type": "@id" }
+          }
+        },
+        "creative_commons": {
+          "@id": "cc:License",
+          "@context": {
+            "value":     { "@id": "liccium:ccLicenseCode", "@type": "xsd:string" },
+            "deed":      { "@id": "cc:deed",               "@type": "@id" },
+            "deed_code": { "@id": "cc:legalcode",          "@type": "@id" }
+          }
+        },
+        "faia": {
+          "@id": "faia:CreationMetadata",
+          "@context": {
+            "faiaFlag":                  { "@id": "faia:flag",                     "@type": "xsd:string" },
+            "activityCode":              { "@id": "faia:activityCode",             "@type": "xsd:string" },
+            "systemAttributionSystem":   { "@id": "faia:systemAttributionSystem",  "@type": "xsd:string" },
+            "systemAttributionVersion":  { "@id": "faia:systemAttributionVersion", "@type": "xsd:string" }
+          }
+        }
+      }
+    },
+
+    "optOutMetadata": {
+      "@id": "liccium:OptOutMetadata",
+      "@context": {
+        "usagePermission": { "@id": "tdm:usagePermission", "@type": "xsd:string" },
+        "cid":             { "@id": "liccium:cid",         "@type": "xsd:string" },
+        "optOutPreferences": {
+          "@id": "tdm:preferences",
+          "@context": {
+            "autoProcessing": { "@id": "tdm:autoProcessing", "@type": "xsd:string" },
+            "aiTraining":     { "@id": "tdm:aiTraining",     "@type": "xsd:string" },
+            "genAiTraining":  { "@id": "tdm:genAiTraining",  "@type": "xsd:string" },
+            "aiUse":          { "@id": "tdm:aiUse",          "@type": "xsd:string" },
+            "search":         { "@id": "tdm:search",         "@type": "xsd:string" }
+          }
+        }
+      }
+    },
+
+    "faiaMetadata": {
+      "@id": "faia:RegistryMetadata",
+      "@context": {
+        "faiaPreferences": {
+          "@id": "faia:preferences",
+          "@context": {
+            "faiaFlag":                 { "@id": "faia:flag",                     "@type": "xsd:string" },
+            "activityCode":             { "@id": "faia:activityCode",             "@type": "xsd:string" },
+            "systemAttributionSystem":  { "@id": "faia:systemAttributionSystem",  "@type": "xsd:string" },
+            "systemAttributionVersion": { "@id": "faia:systemAttributionVersion", "@type": "xsd:string" }
+          }
+        }
+      }
+    }
+  }
+}
