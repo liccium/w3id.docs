@@ -6,7 +6,7 @@
     "dct":      "http://purl.org/dc/terms/",
     "schema":   "https://schema.org/",
     "iscc_ont": "https://schema.iscc.codes/terms/",
-    "liccium":  "https://w3id.org/liccium/ont/",
+    "liccium":  "https://w3id.org/liccium/ont/0.2.0.ttl",
     "tdm":      "https://w3id.org/tdm-reservation-protocol/",
     "cc":       "https://creativecommons.org/ns#",
     "iptc":     "https://iptc.org/std/photometadata/specification/",
