@@ -72,7 +72,7 @@
           "@id": "liccium:tdmPolicy",
           "@context": {
             "tdm-reservation": { "@id": "liccium:reservation",  "@type": "xsd:integer" },
-            "tdm-policy":       { "@id": "liccium:policyRrl",  "@type": "@id" }
+            "tdm-policy":       { "@id": "liccium:policyUrl",  "@type": "@id" }
           }
         },
         "iptc": {
