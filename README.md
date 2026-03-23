@@ -13,8 +13,8 @@ Versioned JSON Schema, JSON-LD context, and OWL ontology definitions for Liccium
 Reference these files via w3id.org persistent URLs:
 
 ```
-https://w3id.org/liccium/schema/0.1.0.json
-https://w3id.org/liccium/context/0.1.0.json
-https://w3id.org/liccium/ont/0.1.0.ttl
+https://w3id.org/liccium/schema/0.3.0.json
+https://w3id.org/liccium/context/0.2.0.json
+https://w3id.org/liccium/ont/0.3.0.ttl
 ```
 
