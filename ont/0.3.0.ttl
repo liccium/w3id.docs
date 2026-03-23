@@ -18,7 +18,7 @@
 ###  https://w3id.org/liccium/ont/tdm-reservation
 <https://w3id.org/liccium/ont/tdm-reservation> rdf:type owl:DatatypeProperty ;
                rdfs:domain :Declaration ;
-               rdffs:range xsd:integer ;
+               rdfs:range xsd:integer ;
                    rdfs:comment "Indicates whether TDM (Text and Data Mining) rights are reserved for this content. A value of 1 means rights are reserved – TDM agents must not mine the content without authorisation from the rightsholder. A value of 0 means rights are not reserved – TDM agents may mine the content without contacting the rightsholder. Defined values: 0 or 1." ;
                rdfs:label "tdm-reservation" .
 
@@ -34,7 +34,7 @@
 ###  https://w3id.org/liccium/ont/signature
 <https://w3id.org/liccium/ont/signature> rdf:type owl:DatatypeProperty ;
                rdfs:domain :Declaration ;
-               rdffs:range xsd:string ;
+               rdfs:range xsd:string ;
                rdfs:comment "Base64-encoded or hex-encoded digital signature over the declaration data." ;
                rdfs:label "signature" .
 
