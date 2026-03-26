@@ -42,12 +42,12 @@ owl:imports <https://w3id.org/liccium/ont/> .
 #    Data properties
 #################################################################
 
-###  https://w3id.org/faia/ont/version
-faia:version rdf:type owl:DatatypeProperty ;
+###  https://w3id.org/faia/ont/systemVersion
+faia:systemVersion rdf:type owl:DatatypeProperty ;
              rdfs:domain <https://w3id.org/liccium/ont/Declaration> ;
              rdfs:range xsd:string ;
              rdfs:comment "The version field specifies the particular version of the AI system used. Where known, this should follow the naming or numbering scheme provided by the system’s operator." ;
-             rdfs:label "version" .
+             rdfs:label "system version" .
 
 
 ###  https://w3id.org/faia/ont/activityCode
@@ -66,12 +66,12 @@ faia:faiaFlag rdf:type owl:DatatypeProperty ;
               rdfs:label "FAIA flag" .
 
 
-###  https://w3id.org/faia/ont/system
-faia:system rdf:type owl:DatatypeProperty ;
+###  https://w3id.org/faia/ont/systemAttribution
+faia:systemAttribution rdf:type owl:DatatypeProperty ;
                                   rdfs:domain <https://w3id.org/liccium/ont/Declaration> ;
                                   rdfs:range xsd:string ;
                                   rdfs:comment "The system field identifies the AI system or engine used to generate or modify the content. This may include the name of the system or model family, ideally using the provider’s official designation." ;
-                                  rdfs:label "system" .
+                                  rdfs:label "system attribution" .
 
 
 #################################################################
