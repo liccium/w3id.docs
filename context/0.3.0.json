@@ -6,8 +6,8 @@
     "dct":      "http://purl.org/dc/terms/",
     "schema":   "https://schema.org/",
     "iscc_ont": "https://schema.iscc.codes/terms/",
-    "liccium":  "https://w3id.org/liccium/ont/0.2.0.ttl",
-    "tdm":      "https://w3id.org/tdm-reservation-protocol/",
+    "liccium":  "https://w3id.org/liccium/ont/0.3.0.ttl",
+    "tdm":      "https://www.w3.org/ns/tdmrep/",
     "cc":       "https://creativecommons.org/ns#",
     "iptc":     "https://iptc.org/std/photometadata/specification/",
     "faia":     "https://w3id.org/faia/ont/",
@@ -69,10 +69,10 @@
       "@id": "liccium:plugins",
       "@context": {
         "tdmrep": {
-          "@id": "tdm:tdmPolicy",
+          "@id": "liccium:tdmPolicy",
           "@context": {
-            "tdm-reservation": { "@id": "tdm:reservation",  "@type": "xsd:integer" },
-            "tdm-policy":       { "@id": "tdm:policyRrl",  "@type": "@id" }
+            "tdm-reservation": { "@id": "liccium:reservation",  "@type": "xsd:integer" },
+            "tdm-policy":       { "@id": "liccium:policyUrl",  "@type": "@id" }
           }
         },
         "iptc": {
