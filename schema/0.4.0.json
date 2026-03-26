@@ -1,0 +1,411 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://w3id.org/liccium/schema/0.4.0.json",
+  "title": "Liccium Declaration Schema 0.4.0",
+  "description": "Schema for Liccium declaration request payloads.",
+  "type": "object",
+  "required": ["signature", "tsaSignature", "declarationMetadata"],
+  "properties": {
+    "signature": {
+      "type": "string",
+      "description": "JWT signature over the complete publicMetadata content",
+      "pattern": "^[A-Za-z0-9_-]+\\.[A-Za-z0-9_-]+\\.[A-Za-z0-9_-]+$"
+    },
+    "tsaSignature": {
+      "$ref": "#/$defs/TsaSignature",
+      "description": "RFC 3161 TSA timestamp for the main signature"
+    },
+    "optOutRegistrySignature": {
+      "type": "string",
+      "description": "JWT signature over optOutMetadata — required when optOutMetadata is present",
+      "pattern": "^[A-Za-z0-9_-]+\\.[A-Za-z0-9_-]+\\.[A-Za-z0-9_-]+$"
+    },
+    "optOutRegistryTsaSignature": {
+      "$ref": "#/$defs/TsaSignature",
+      "description": "RFC 3161 TSA timestamp for optOutRegistrySignature — required when optOutMetadata is present"
+    },
+    "faiaRegistrySignature": {
+      "type": "string",
+      "description": "JWT signature over faiaMetadata —  when faiaMetadata is present",
+      "pattern": "^[A-Za-z0-9_-]+\\.[A-Za-z0-9_-]+\\.[A-Za-z0-9_-]+$"
+    },
+    "faiaRegistryTsaSignature": {
+      "$ref": "#/$defs/TsaSignature",
+      "description": "RFC 3161 TSA timestamp for faiaRegistrySignature —  when faiaMetadata is present"
+    },
+    "declarationMetadata": {
+      "type": "object",
+      "required": ["publicMetadata"],
+      "properties": {
+        "publicMetadata": { "$ref": "#/$defs/PublicMetadata" },
+        "optOutMetadata": { "$ref": "#/$defs/OptOutMetadata" },
+        "faiaMetadata": { "$ref": "#/$defs/FaiaMetadata" }
+      }
+    }
+  },
+  "$defs": {
+    "TsaSignature": {
+      "type": "object",
+      "description": "RFC 3161 Time Stamp Authority signature",
+      "required": ["tsr", "tsq"],
+      "properties": {
+        "tsr": {
+          "type": "string",
+          "description": "Time Stamp Response in base64 encoding",
+          "pattern": "^[A-Za-z0-9+/]+=*$"
+        },
+        "tsq": {
+          "type": "string",
+          "description": "Time Stamp Query in base64 encoding",
+          "pattern": "^[A-Za-z0-9+/]+=*$"
+        }
+      }
+    },
+    "PublicMetadata": {
+      "type": "object",
+      "description": "Publicly accessible ISCC-based declaration metadata with Liccium plugin extensions",
+      "required": ["$schema", "@context", "iscc", "name", "timestamp", "declarerId"],
+      "properties": {
+        "$schema": {
+          "type": "string",
+          "format": "uri",
+          "description": "Liccium schema URL",
+          "const": "https://w3id.org/liccium/schema/0.2.0.json"
+        },
+        "@context": {
+          "type": "string",
+          "format": "uri",
+          "description": "Liccium JSON-LD context URL",
+          "const": "https://w3id.org/liccium/context/0.2.0.json"
+        },
+        "iscc": {
+          "type": "string",
+          "description": "International Standard Content Code",
+          "pattern": "^ISCC:[A-Z0-9]{4,}$"
+        },
+        "name": {
+          "type": "string",
+          "description": "Title or name of the declared content",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the declared content"
+        },
+        "mode": {
+          "type": "string",
+          "description": "ISCC content mode (e.g. image, video, audio, text)"
+        },
+        "filename": {
+          "type": "string",
+          "description": "Original filename of the declared asset"
+        },
+        "filesize": {
+          "type": "integer",
+          "description": "File size in bytes",
+          "minimum": 0
+        },
+        "mediatype": {
+          "type": "string",
+          "description": "MIME type of the content",
+          "examples": ["image/jpeg", "image/webp", "video/mp4", "application/pdf"]
+        },
+        "width": {
+          "type": "integer",
+          "description": "Image/video width in pixels",
+          "minimum": 0
+        },
+        "height": {
+          "type": "integer",
+          "description": "Image/video height in pixels",
+          "minimum": 0
+        },
+        "thumbnail": {
+          "type": "string",
+          "description": "Base64-encoded thumbnail image or data URI"
+        },
+        "metahash": {
+          "type": "string",
+          "description": "ISCC metahash of the content"
+        },
+        "datahash": {
+          "type": "string",
+          "description": "ISCC datahash of the content"
+        },
+        "license": {
+          "type": "string",
+          "description": "License URL for the content (used when IPTC plugin is not active)"
+        },
+        "acquire": {
+          "type": "string",
+          "description": "URL where the content can be licensed/acquired"
+        },
+        "redirect": {
+          "type": "string",
+          "format": "uri",
+          "description": "Redirect URL for the content"
+        },
+        "sourceUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "Original source URL of the content"
+        },
+        "original": {
+          "type": "boolean",
+          "description": "Whether this declarer is the original creator"
+        },
+        "version": {
+          "type": "integer",
+          "description": "Declaration version number",
+          "minimum": 1
+        },
+        "entryUUID": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Unique UUID for this Liccium entry"
+        },
+        "redacted": {
+          "type": "boolean",
+          "description": "Whether this entry is redacted"
+        },
+        "supersedes": {
+          "type": "string",
+          "description": "CIDv1 identifier of a prior declaration this one supersedes"
+        },
+        "timestamp": {
+          "type": "integer",
+          "description": "Unix timestamp in milliseconds when the declaration was created"
+        },
+        "declarerId": {
+          "type": "string",
+          "description": "DID of the declarer, derived from their X.509 certificate public key",
+          "pattern": "^did:[a-z0-9]+:"
+        },
+        "regId": {
+          "type": "string",
+          "description": "Registry identifier (hex string, 3 bytes)",
+          "pattern": "^[0-9a-f]{6}$",
+          "examples": ["000001"]
+        },
+        "declarationIdVersion": {
+          "type": "string",
+          "description": "Declaration ID version (hex string, 1 byte)",
+          "pattern": "^[0-9a-f]{2}$",
+          "examples": ["01"]
+        },
+        "credentials": {
+          "type": "array",
+          "description": "Array of verifiable credentials proving the declarer's identity",
+          "items": { "$ref": "#/$defs/VerifiableCredential" },
+          "minItems": 1
+        },
+        "liccium_plugins": { "$ref": "#/$defs/LicciumPlugins" }
+      }
+    },
+    "LicciumPlugins": {
+      "type": "object",
+      "description": "Liccium plugin metadata included in the declaration",
+      "properties": {
+        "tdmrep": { "$ref": "#/$defs/TdmRepPlugin" },
+        "iptc": { "$ref": "#/$defs/IptcPlugin" },
+        "c2pa": {
+          "type": "object",
+          "description": "C2PA (Content Credentials) manifest metadata"
+        },
+        "creative_commons": { "$ref": "#/$defs/CreativeCommonsPlugin" },
+        "faia": { "$ref": "#/$defs/FaiaPlugin" }
+      }
+    },
+    "TdmRepPlugin": {
+      "type": "object",
+      "description": "TDM (Text and Data Mining) / AI training opt-out preference",
+      "required": ["tdm-reservation"],
+      "properties": {
+        "tdm-reservation": {
+          "type": "integer",
+          "enum": [0, 1],
+          "description": "Whether TDM rights are reserved. 1 = TDM rights are reserved; if a TDM Policy is set, TDM Agents MAY use it to get information on how they can acquire from the rightsholder an authorization to mine the content. 0 = TDM rights are not reserved; TDM agents can mine the content for TDM purposes without having to contact the rightsholder."
+        },
+        "tdm-policy": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL linking to a TDM Policy document (machine-readable or human-readable)"
+        }
+      }
+    },
+    "IptcPlugin": {
+      "type": "object",
+      "description": "IPTC photo metadata",
+      "properties": {
+        "digitalsourcetype": {
+          "type": "string",
+          "description": "IPTC digital source type URI"
+        },
+        "keywords": { "type": "string", "description": "Comma-separated keywords" },
+        "creator": { "type": "string", "description": "Creator/author name" },
+        "credit": { "type": "string", "description": "Credit line" },
+        "creditText": { "type": "string", "description": "Credit text" },
+        "copyrightNotice": { "type": "string", "description": "Copyright notice" },
+        "acquireLicensePage": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL where a license can be acquired"
+        },
+        "webstatementRights": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL of the rights/license statement"
+        }
+      }
+    },
+    "CreativeCommonsPlugin": {
+      "type": "object",
+      "description": "Creative Commons license information",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string",
+          "description": "Creative Commons license short code (e.g. by/4.0, zero/1.0)"
+        },
+        "deed": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to the human-readable CC deed"
+        },
+        "deed_code": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to the full CC legal code"
+        }
+      }
+    },
+    "FaiaPlugin": {
+      "type": "object",
+      "description": "FAIA (Framework for AI-Assisted creation) plugin metadata embedded in publicMetadata",
+      "required": ["faiaFlag"],
+      "properties": {
+        "faiaFlag": {
+          "type": "string",
+          "description": "FAIA flag",
+          "enum": ["hcc", "aac", "aig"]
+        },
+        "activityCode": {
+          "type": "string",
+          "description": "FAIA activity code describing AI involvement",
+          "enum": [
+            "undefined",
+            "coCreation",
+            "contribution",
+            "enhancement",
+            "refinement",
+            "transformation",
+            "analysis"
+          ]
+        },
+        "systemAttribution": {
+          "type": "string",
+          "description": "Name of the AI system used"
+        },
+        "systemVersion": {
+          "type": "string",
+          "description": "Version of the AI system used"
+        }
+      }
+    },
+    "FaiaMetadata": {
+      "type": "object",
+      "description": "FAIA registry metadata — present when the FAIA plugin is active for this entry",
+      "required": ["iscc", "timestamp", "credentials", "faiaPreferences"],
+      "properties": {
+        "iscc": {
+          "type": "string",
+          "description": "ISCC code of the declared content",
+          "pattern": "^ISCC:[A-Z0-9]{4,}$"
+        },
+        "timestamp": {
+          "type": "integer",
+          "description": "Unix timestamp in milliseconds"
+        },
+        "credentials": {
+          "type": "array",
+          "description": "Verifiable credentials of the declarer",
+          "items": { "$ref": "#/$defs/VerifiableCredential" },
+          "minItems": 1
+        },
+        "faiaPreferences": { "$ref": "#/$defs/FaiaPreferences" }
+      }
+    },
+    "FaiaPreferences": {
+      "type": "object",
+      "description": "FAIA creation metadata taken from the entry",
+      "required": ["faiaFlag"],
+      "properties": {
+        "faiaFlag": {
+          "type": "string",
+          "enum": ["hcc", "aac", "aig"]
+        },
+        "activityCode": {
+          "type": "string",
+          "enum": [
+            "undefined",
+            "coCreation",
+            "contribution",
+            "enhancement",
+            "refinement",
+            "transformation",
+            "analysis"
+          ]
+        },
+        "systemAttribution": { "type": "string" },
+        "systemVersion": { "type": "string" }
+      }
+    },
+    "VerifiableCredential": {
+      "type": "object",
+      "description": "W3C Verifiable Credential",
+      "required": ["id", "type", "issuer", "validFrom", "validUntil", "credentialSchema", "credentialSubject"],
+      "properties": {
+        "id": { "type": "string", "format": "uri" },
+        "type": {
+          "type": "array",
+          "items": { "type": "string" },
+          "contains": { "const": "VerifiableCredential" }
+        },
+        "issuer": {
+          "type": "string",
+          "pattern": "^did:[a-z0-9]+:"
+        },
+        "validFrom":  { "type": "string", "format": "date-time" },
+        "validUntil": { "type": "string", "format": "date-time" },
+        "credentialSchema": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "type"],
+            "properties": {
+              "id":   { "type": "string", "format": "uri" },
+              "type": { "type": "string", "const": "JsonSchema" }
+            }
+          }
+        },
+        "credentialSubject": {
+          "type": "object",
+          "required": ["id"],
+          "properties": {
+            "id":              { "type": "string", "pattern": "^did:[a-z0-9]+:" },
+            "sameAs":          { "type": "string" },
+            "dataSupplierFor": { "type": "string" }
+          }
+        },
+        "proof": {
+          "type": "object",
+          "required": ["type", "jwt"],
+          "properties": {
+            "type": { "type": "string", "const": "JwtProof2020" },
+            "jwt":  { "type": "string", "pattern": "^[A-Za-z0-9_-]+\\.[A-Za-z0-9_-]+\\.[A-Za-z0-9_-]+$" }
+          }
+        }
+      }
+    }
+  }
+}
