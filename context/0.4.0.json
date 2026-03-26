@@ -1,0 +1,131 @@
+{
+  "@context": {
+    "@version": "0.2.0",
+
+    "xsd":      "http://www.w3.org/2001/XMLSchema#",
+    "dct":      "http://purl.org/dc/terms/",
+    "schema":   "https://schema.org/",
+    "iscc_ont": "https://schema.iscc.codes/terms/",
+    "liccium":  "https://w3id.org/liccium/ont/0.3.0.ttl",
+    "tdm":      "https://www.w3.org/ns/tdmrep/",
+    "cc":       "https://creativecommons.org/ns#",
+    "iptc":     "https://iptc.org/std/photometadata/specification/",
+    "faia_ont":     "https://w3id.org/liccium/faia/ont/0.4.0.ttl",
+    "faia_vocab": "https://w3id.org/liccium/faia/vocab/0.4.0.ttl",
+
+    "iscc": {
+      "@id":   "iscc_ont:iscc",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id":   "dct:title",
+      "@type": "xsd:string"
+    },
+    "description": {
+      "@id":   "dct:description",
+      "@type": "xsd:string"
+    },
+    "timestamp": {
+      "@id":   "http://www.w3.org/ns/prov#generatedAtTime",
+      "@type": "xsd:integer"
+    },
+    "declarerId": {
+      "@id":   "liccium:declarerId",
+      "@type": "xsd:string"
+    },
+    "regId": {
+      "@id":   "liccium:regId",
+      "@type": "xsd:string"
+    },
+    "declarationIdVersion": {
+      "@id":   "liccium:declarationIdVersion",
+      "@type": "xsd:string"
+    },
+
+    "mode":        { "@id": "iscc_ont:mode",     "@type": "xsd:string" },
+    "filename":    { "@id": "iscc_ont:filename",  "@type": "xsd:string" },
+    "filesize":    { "@id": "iscc_ont:filesize",  "@type": "xsd:integer" },
+    "mediatype":   { "@id": "iscc_ont:mediatype", "@type": "xsd:string" },
+    "width":       { "@id": "schema:width",       "@type": "xsd:integer" },
+    "height":      { "@id": "schema:height",      "@type": "xsd:integer" },
+    "thumbnail":   { "@id": "schema:thumbnail",   "@type": "xsd:string" },
+    "metahash":    { "@id": "iscc_ont:metahash",  "@type": "xsd:string" },
+    "datahash":    { "@id": "iscc_ont:datahash",  "@type": "xsd:string" },
+    "sourceUrl":   { "@id": "schema:contentUrl",  "@type": "@id" },
+    "redirect":    { "@id": "schema:url",         "@type": "@id" },
+    "license":     { "@id": "cc:license",         "@type": "@id" },
+    "acquire":     { "@id": "cc:morePermissions", "@type": "@id" },
+    "original":    { "@id": "liccium:original",   "@type": "xsd:boolean" },
+    "redacted":    { "@id": "liccium:redacted",   "@type": "xsd:boolean" },
+    "version":     { "@id": "dct:hasVersion",     "@type": "xsd:integer" },
+    "entryUUID":   { "@id": "liccium:entryUUID",  "@type": "xsd:string" },
+    "supersedes":  { "@id": "dct:replaces",       "@type": "xsd:string" },
+
+    "credentials": {
+      "@id":   "https://www.w3.org/2018/credentials/#verifiableCredential",
+      "@type": "@id"
+    },
+
+    "liccium_plugins": {
+      "@id": "liccium:plugins",
+      "@context": {
+        "tdmrep": {
+          "@id": "liccium:tdmPolicy",
+          "@context": {
+            "tdm-reservation": { "@id": "liccium:reservation",  "@type": "xsd:integer" },
+            "tdm-policy":       { "@id": "liccium:policyUrl",  "@type": "@id" }
+          }
+        },
+        "iptc": {
+          "@id": "iptc:PhotoMetadata",
+          "@context": {
+            "digitalsourcetype":  { "@id": "iptc:digitalSourceType",   "@type": "@id" },
+            "keywords":           { "@id": "iptc:keywords",            "@type": "xsd:string" },
+            "creator":            { "@id": "dct:creator",              "@type": "xsd:string" },
+            "credit":             { "@id": "iptc:creditLine",          "@type": "xsd:string" },
+            "creditText":         { "@id": "iptc:creditLine",          "@type": "xsd:string" },
+            "copyrightNotice":    { "@id": "dct:rights",               "@type": "xsd:string" },
+            "acquireLicensePage": { "@id": "cc:morePermissions",       "@type": "@id" },
+            "webstatementRights": { "@id": "cc:license",               "@type": "@id" }
+          }
+        },
+        "creative_commons": {
+          "@id": "cc:License",
+          "@context": {
+            "value":     { "@id": "liccium:ccLicenseCode", "@type": "xsd:string" },
+            "deed":      { "@id": "cc:deed",               "@type": "@id" },
+            "deed_code": { "@id": "cc:legalcode",          "@type": "@id" }
+          }
+        },
+        "faia": {
+          "@id": "faia_ont:faiaMetadata",
+          "@context": {
+            "faiaFlag": {
+              "@id":   "faia_ont:faiaFlag",
+              "@type": "@vocab",
+              "@context": {
+                "HCC": { "@id": "faia_vocab:HCC" },
+                "AAC": { "@id": "faia_vocab:AAC" },
+                "AIG": { "@id": "faia_vocab:AIG" }
+              }
+            },
+            "activityCode": {
+              "@id":   "faia_ont:activityCode",
+              "@type": "@vocab",
+              "@context": {
+                "coCreation":     { "@id": "faia_vocab:Co-Creation" },
+                "contribution":   { "@id": "faia_vocab:Contribution" },
+                "enhancement":    { "@id": "faia_vocab:Enhancement" },
+                "refinement":     { "@id": "faia_vocab:Refinement" },
+                "transformation": { "@id": "faia_vocab:Transformation" },
+                "analysis":       { "@id": "faia_vocab:Analysis" }
+              }
+            },
+            "systemAttribution": { "@id": "faia_ont:systemAttribution", "@type": "xsd:string" },
+            "systemVersion":     { "@id": "faia_ont:systemVersion",     "@type": "xsd:string" }
+          }
+        }
+      }
+    }
+  }
+}
