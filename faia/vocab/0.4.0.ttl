@@ -1,0 +1,125 @@
+@prefix faia: <https://w3id.org/faia/vocab/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix omv: <http://omv.ontoware.org/2005/05/ontology#> .
+@prefix schema: <https://schema.org> .
+
+<https://w3id.org/faia/vocab> a skos:ConceptScheme;
+ owl:ontologyIRI <https://w3id.org/faia/ont/>;
+dct:identifier <https://w3id.org/faia/ont/>;
+skos:prefLabel "FAIR AI Attribution vocabulary"@en;
+dct:title "FAIR AI Attribution vocabulary"@en;
+omv:acronym "FAIA_voc"@en;
+omv:resourceLocator "https://w3id.org/faia/ont/";
+omv:keywords <http://purl.bioontology.org/ontology/MESH/D000098842>;
+dct:publisher <https://ror.org/027bh9e22>;
+omv:knownUsage "Terms for disclosing the role of AI in the content creation process."@en;
+dct:audience <http://schema.org/Researcher>;
+dct:audience <https://schema.org/BusinessAudience>;
+dct:audience <https://schema.org/EducationalAudience>;
+dct:subject <http://semanticscience.org/resource/SIO_001080>;
+dct:description "The FAIA Vocabulary is designed to transparently and consistently disclose the role of AI in the content creation process. It provides a standardised way to describe how content is created, modified, or generated in workflows involving both human and AI contributions."@en;
+dct:creator <https://orcid.org/0000-0002-4182-7560>;
+dct:creator <https://orcid.org/0000-0001-8888-635X>;
+dct:creator <https://orcid.org/0000-0002-0615-9616>;
+dct:creator <https://orcid.org/0000-0003-4571-2549>;
+dct:creator <https://orcid.org/0000-0002-4930-2662>;
+dct:creator <https://orcid.org/0000-0003-2195-3997>;
+dct:license <https://creativecommons.org/licenses/by/4.0/>;
+dct:language "en";
+owl:versionInfo "1.0.0"@en;
+dct:created "20/11/2025";
+dct:modified "26/03/2026";
+  skos:hasTopConcept faia:ActivityCode, faia:FaiaFlag .
+  
+  faia:ActivityCode a skos:Concept;
+  dct:creator <https://orcid.org/0000-0003-4571-2549>;
+  skos:inScheme <https://w3id.org/faia/vocab>;
+  skos:definition "Code describing the activity or workflow step, aligned with FAIA or STM AI classification."@en;
+  skos:narrower faia:Co-Creation, faia:Contribution, faia:Enhancement, faia:Refinement, faia:Transformation, faia:Analysis;
+  skos:prefLabel "activity code"@en;
+  skos:topConceptOf <https://w3id.org/faia/vocab/> .
+  
+  faia:FaiaFlag a skos:Concept;
+  dct:creator <https://orcid.org/0000-0003-4571-2549>;
+  skos:inScheme <https://w3id.org/faia/vocab>;
+  skos:definition "Flag indicating AI involvement in the creation or modification of the work, according to the FAIA classification."@en;
+  skos:narrower faia:HCC, faia:AAC, faia:AIG;
+  skos:prefLabel "FAIA flag"@en;
+  skos:topConceptOf <https://w3id.org/faia/vocab/> .
+  
+  faia:Co-Creation a skos:Concept;
+  dct:creator <https://orcid.org/0000-0003-4571-2549>;
+  skos:inScheme <https://w3id.org/faia/vocab>;
+  skos:broader faia:ActivityCode; 
+  skos:definition "AI and humans jointly produce content through an interactive process. The AI generates substantial parts of the content based directly on human-created material and structure. Creatorship is shared and not clearly separable."@en; 
+  skos:prefLabel "co-creation"@en .
+  
+  faia:Contribution a skos:Concept;
+  dct:creator <https://orcid.org/0000-0003-4571-2549>;
+  skos:inScheme <https://w3id.org/faia/vocab>;
+  skos:broader faia:ActivityCode; 
+  skos:definition "AI produces content that is incorporated into a primarily human-created work. The human determines overall structure, intent, and final form, and remains the final creator of the combined result."@en;
+  skos:prefLabel "contribution"@en .  
+   
+  faia:Enhancement a skos:Concept;
+  dct:creator <https://orcid.org/0000-0003-4571-2549>;
+  skos:inScheme <https://w3id.org/faia/vocab>;
+  skos:broader faia:ActivityCode; 
+  skos:definition "AI modifies or extends existing human-created content to improve quality, clarity, richness, or structure."@en;
+  skos:prefLabel "enhancement"@en .
+  
+  faia:Refinement a skos:Concept;
+  dct:creator <https://orcid.org/0000-0003-4571-2549>;
+  skos:inScheme <https://w3id.org/faia/vocab>;
+  skos:broader faia:ActivityCode; 
+  skos:definition "AI performs limited adjustments that preserve the existing structure, meaning, and creatorship of the content."@en;
+  skos:prefLabel "analysis"@en .  
+  
+  faia:Transformation a skos:Concept;
+  dct:creator <https://orcid.org/0000-0003-4571-2549>;
+  skos:inScheme <https://w3id.org/faia/vocab>;
+  skos:broader faia:ActivityCode; 
+  skos:definition "AI converts existing content into another form or representation while preserving semantic equivalence or maintaining a close relationship to the original content."@en;
+  skos:prefLabel "transformation"@en .
+  
+  faia:Analysis a skos:Concept;
+  dct:creator <https://orcid.org/0000-0003-4571-2549>;
+  skos:inScheme <https://w3id.org/faia/vocab>;
+  skos:broader faia:ActivityCode; 
+  skos:definition "AI interprets existing content to derive structure, features, metadata, meaning, or insights."@en;
+  skos:prefLabel "analysis"@en .
+  
+
+  
+  faia:HCC a skos:Concept;
+  dct:creator <https://orcid.org/0000-0003-4571-2549>;
+  skos:inScheme <https://w3id.org/faia/vocab>;
+  skos:broader faia:FaiaFlag; 
+  skos:definition "Content created, generated and edited exclusively by humans or human-controlled instruments. While digital tools such as word processors, image editors, or audio software may be used, no generative AI systems are involved at any stage of the creative or editorial process."@en;
+  skos:prefLabel "HCC"@en;
+  skos:altLabel "human-created content"@en .
+  
+  faia:AAC a skos:Concept;
+  dct:creator <https://orcid.org/0000-0003-4571-2549>;
+  skos:inScheme <https://w3id.org/faia/vocab>;
+  skos:broader faia:FaiaFlag; 
+  skos:definition "Content where a human or a human-controlled instrument remains the primary creator and AI systems contributed during the creation process to various degrees. This may include AI-generated input that humans or human-controlled instruments accept or reject, generation of content fragments that humans or human-controlled instruments integrate into larger works, or refinement steps performed under direct human supervision and editorial control."@en;
+  skos:prefLabel "AAC"@en;
+  skos:altLabel "ai-assisted content"@en .
+  
+  faia:AIG a skos:Concept;
+  dct:creator <https://orcid.org/0000-0003-4571-2549>;
+  skos:inScheme <https://w3id.org/faia/vocab>;
+  skos:broader faia:FaiaFlag; 
+  skos:definition "Content generated predominantly or entirely by an AI system, where the AI serves as the main creative agent. Human input may be limited to initiating prompts, selecting among AI-generated outputs, or making minor adjustments, or expressive intent. The resulting content is accepted largely as produced by the AI, with no substantive human editing or creatorship."@en;
+  skos:prefLabel "AIG"@en;
+  skos:altLabel "ai-generated content"@en .  
+  
+  
+  
+  
