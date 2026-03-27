@@ -76,14 +76,14 @@ The FAIA vocabulary covers three layers of AI involvement disclosure:
 
 **Activity Codes** describe the specific operation performed, using either established domain vocabularies (STM AI Classification for academic manuscripts, IPTC Digital Source Type for visual media) or FAIA's own generic, media-independent codes: `coCreation`, `contribution`, `enhancement`, `refinement`, `transformation`, `analysis`.
 
-**System Attribution** identifies the specific AI system used, via two fields:
+### Ontology namespace
+
+The FAIA ontology is published at `https://w3id.org/liccium/faia/ont/` and defines data properties, including `faiaFlag`, `activityCode`, `systemAttribution`, `systemVersion`.
+
+**System Attribution** identifies the specific AI system used:
 
 - `systemAttribution` — the entity operating the AI system, e.g. `Anthropic`
 - `systemVersion` — the specific version of the AI system used, e.g. `Claude Sonnet 4.6`
-
-### Ontology namespace
-
-The FAIA ontology is published at `https://w3id.org/liccium/faia/ont/` and defines terms including `faia:flag`, `faia:activityCode`, `faia:systemAttribution`, `faia:systemVersion`.
 
 ---
 
