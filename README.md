@@ -83,7 +83,7 @@ The FAIA vocabulary covers three layers of AI involvement disclosure:
 
 ### Ontology namespace
 
-The FAIA ontology is published at `https://w3id.org/liccium/faia/ont/` and defines terms including `faia:CreationMetadata`, `faia:RegistryMetadata`, `faia:flag`, `faia:activityCode`, `faia:systemAttribution`, `faia:systemVersion`, and `faia:preferences`.
+The FAIA ontology is published at `https://w3id.org/liccium/faia/ont/` and defines terms including `faia:flag`, `faia:activityCode`, `faia:systemAttribution`, `faia:systemVersion`.
 
 ---
 
