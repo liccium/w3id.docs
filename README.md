@@ -74,7 +74,7 @@ The FAIA vocabulary covers three layers of AI involvement disclosure:
 - `aac` — AI-Assisted Content: human remains primary creator; AI contributed during the process
 - `aig` — AI-Generated Content: AI is the primary creative agent; human input limited to prompting or selection
 
-**Activity Types** describe the specific operation performed, using either established domain vocabularies (STM AI Classification for academic manuscripts, IPTC Digital Source Type for visual media) or FAIA's own generic, media-independent codes: `coCreation`, `contribution`, `enhancement`, `refinement`, `transformation`, `analysis`.
+**Activity Codes** describe the specific operation performed, using either established domain vocabularies (STM AI Classification for academic manuscripts, IPTC Digital Source Type for visual media) or FAIA's own generic, media-independent codes: `coCreation`, `contribution`, `enhancement`, `refinement`, `transformation`, `analysis`.
 
 **System Attribution** identifies the specific AI system used, via two fields:
 
