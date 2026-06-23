@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://w3id.org/liccium/schema/0.4.0.json",
-  "title": "Liccium Declaration Schema 0.4.0",
+  "$id": "https://w3id.org/liccium/schema/0.5.0.json",
+  "title": "Liccium Declaration Schema 0.5.0",
   "description": "Schema for Liccium declaration request payloads.",
   "type": "object",
   "required": ["signature", "tsaSignature", "declarationMetadata"],
