@@ -125,7 +125,7 @@
                 "STM data presentation refinement":     { "@id": "faia_vocab:STM-DataPresentationRefinement" },
                 "STM illustrative figure generation": { "@id": "faia_vocab:STM-IllustrativeFigureGeneration" },
                 "STM research data visualisation":       { "@id": "faia_vocab:STM-ResearchDataVisualisation" },
-                "STM code presentation refinement": { "@id": "faia_vocab:STM-CodePresentationRefinement" },
+                "STM code presentation refinement": { "@id": "faia_vocab:STM-CodePresentationRefinement" },
                 "STM reference gathering":       { "@id": "faia_vocab:STM-ReferenceGathering" }
               }
             },
