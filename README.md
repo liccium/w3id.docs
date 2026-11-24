@@ -23,12 +23,12 @@ Liccium is a content declaration infrastructure built on the International Stand
 Reference the latest published versions via their w3id.org persistent identifiers:
 
 ```
-https://w3id.org/liccium/schema/0.6.0.json
-https://w3id.org/liccium/context/0.6.0.json
+https://w3id.org/liccium/schema/0.7.0.json
+https://w3id.org/liccium/context/0.7.0.json
 https://w3id.org/liccium/ont/0.3.0.ttl
 ```
 
-### Schema (0.6.0)
+### Schema (0.7.0)
 
 The JSON Schema defines the structure of a Liccium declaration request payload. A declaration consists of:
 
@@ -37,9 +37,30 @@ The JSON Schema defines the structure of a Liccium declaration request payload. 
 - `declarationMetadata.faiaMetadata` — FAIA registry data, present when the FAIA plugin is active
 - Cryptographic signatures (`signature`, `tsaSignature`) and optional per-plugin registry signatures
 
-### Context (0.6.0)
+### Context (0.7.0)
 
 The JSON-LD context maps Liccium declaration fields to RDF terms drawn from Dublin Core, schema.org, ISCC ontology, Creative Commons, IPTC, and the FAIA and Liccium ontology namespaces. It defines nested contexts for each plugin, allowing declarations to be interpreted as Linked Data.
+
+### Changes in 0.7.0
+
+Published versions are never edited; corrections are released as a new version. 0.7.0 corrects 0.6.0:
+
+**Context**
+
+- `@version` is `1.1`, as JSON-LD requires. The context version is part of the URL only.
+- The `liccium`, `faia_ont` and `faia_vocab` prefixes are the namespaces (`https://w3id.org/liccium/ont/`, `https://w3id.org/faia-framework/faia_ont/`, `https://w3id.org/faia-framework/faia_vocab/`), not `.ttl` file URLs.
+- The IPTC prefix is `iptc_spec`. It no longer shares its name with the `iptc` plugin key, which made the definition cyclic.
+- `tdm-reservation` and `tdm-policy` map to the ontology properties of the same name.
+- `faiaFlag` values resolve in the lower-case form the schema uses (`hcc`, `aac`, `aig`); the upper-case forms still resolve.
+- `entryUUID` is mapped (to the same property as `entryID`).
+- Credential fields (`issuer`, `validFrom`, `validUntil`, `credentialSubject`, `credentialSchema`, `proof`) are mapped, and the credentials namespace is `https://www.w3.org/2018/credentials#`.
+
+**Schema**
+
+- `$schema` and `@context` are pinned to the 0.7.0 URLs (0.6.0 required the 0.5.0 URLs).
+- `OptOutMetadata` is defined (0.4.0 to 0.6.0 referenced it without a definition).
+- `entryUUID` is the entry identifier used by the declaration API; `entryID` remains as a deprecated alias.
+- A credential `issuer` is any non-empty string; a DID is recommended.
 
 ### Ontology (0.3.0 / version 1.0.0)
 
